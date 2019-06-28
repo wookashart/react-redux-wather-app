@@ -30,6 +30,7 @@ class SearchCityForm extends Component {
         fetch(api.byCity + cityName)
             .then(response => response.json())
             .then(json => {
+                console.log(json);
                 if (json.cod === '404') {
                     notFound = true;
                 } else {

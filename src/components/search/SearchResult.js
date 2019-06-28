@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import WeatherIcon from '../result/WeatherIcon';
 
 class SearchResultComponent extends Component {
     render() {
@@ -16,9 +17,7 @@ class SearchResultComponent extends Component {
                                 <p>
                                     temperatura: {weather.main.temp} st C
                                 </p>
-                                <p>
-                                    <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt="" />
-                                </p>
+                                <WeatherIcon description={weather.weather[0].description} sunset={weather.sys.sunset} sunrise={weather.sys.sunrise} />
                             </>
                         ) : (
                             <span>Najpierw wyszukaj miasto</span>
