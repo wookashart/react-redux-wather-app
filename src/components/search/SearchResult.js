@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import WeatherIcon from '../result/WeatherIcon';
 import { MaxWidthBox } from '../global/MaxWithBox';
+import WeatherIcon from '../result/WeatherIcon';
+import WeatherSunsetSunrise from '../result/WeatherSunsetSunrise';
 
-const Header = styled.div`
+const Header = styled.h1`
     text-align: center;
-    font-size: 22px;
+    font-size: 24px;
     text-transform: uppercase;
-    font-weight: 600;
-
-    span {
-        margin: 0 5px;
-    }
+    font-weight: 700;
 `;
 
 class SearchResultComponent extends Component {
@@ -25,10 +22,8 @@ class SearchResultComponent extends Component {
                     <div>
                         {cityName !== '' ? (
                             <>
-                                <Header>
-                                    <span>Pogoda dla:</span>
-                                    <span>{cityName}</span>
-                                </Header>
+                                <Header>{cityName}</Header>
+                                <WeatherSunsetSunrise sunset={weather.sys.sunset} sunrise={weather.sys.sunrise} time={weather.dt} timezone={weather.timezone} />
                                 
                                 <p>
                                     temperatura: {weather.main.temp} <sup>o</sup>C

@@ -26,7 +26,7 @@ class WeatherIcon extends Component {
             icon = clouds;
         } else if (description === 'shower rain') {
             icon = showerRain;
-        } else if (description === 'rain') {
+        } else if (description === 'rain' || description === 'light rain') {
             icon = time >= this.props.sunrise && time < this.props.sunset ? rainDay : rainNight;
         } else if (description === 'thunderstorm') {
             icon = thunderstorm;
