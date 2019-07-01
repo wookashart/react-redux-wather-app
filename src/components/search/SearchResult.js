@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { MaxWidthBox } from '../global/MaxWithBox';
-import WeatherIcon from '../result/WeatherIcon';
 import WeatherSunsetSunrise from '../result/WeatherSunsetSunrise';
+import WeatherInfo from '../result/WeatherInfo';
 
 const Header = styled.h1`
     text-align: center;
@@ -24,11 +24,7 @@ class SearchResultComponent extends Component {
                             <>
                                 <Header>{cityName}</Header>
                                 <WeatherSunsetSunrise sunset={weather.sys.sunset} sunrise={weather.sys.sunrise} time={weather.dt} timezone={weather.timezone} />
-                                
-                                <p>
-                                    temperatura: {weather.main.temp} <sup>o</sup>C
-                                </p>
-                                <WeatherIcon description={weather.weather[0].description} sunset={weather.sys.sunset} sunrise={weather.sys.sunrise} />
+                                <WeatherInfo weather={weather} />
                             </>
                         ) : (
                             <span>Najpierw wyszukaj miasto</span>
