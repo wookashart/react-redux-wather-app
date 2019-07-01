@@ -5,6 +5,7 @@ import { getCityByName } from '../../redux/actions';
 import Input from '../global/Input';
 import Button from '../global/Button';
 import api from '../../data/api';
+import { MaxWidthBox } from '../global/MaxWithBox';
 
 const Form = styled.form`
     padding: 50px;
@@ -45,10 +46,12 @@ class SearchCityForm extends Component {
 
     render() {
         return (
-            <Form>
-                <Input placeholder="Wyszukaj swoje miasto" action={this.getInputValue} value={this.state.cityName} />
-                <Button title="Szukaj" action={this.getCityByName} />
-            </Form>
+            <MaxWidthBox>
+                <Form>
+                    <Input placeholder="Wyszukaj swoje miasto" action={this.getInputValue} value={this.state.cityName} />
+                    <Button title="Szukaj" action={this.getCityByName} />
+                </Form>
+            </MaxWidthBox>
         )
     }
 }
