@@ -7,7 +7,7 @@ const WeatherInfo = styled.div`
     margin-top: 30px;
 `;
 
-const Temp = styled.div`
+const InfoRow = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,13 +19,40 @@ const Temp = styled.div`
     }
 `;
 
+const Info = styled.div`
+    margin: 0 50px;
+    text-align: center;
+
+    .title {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .content {
+        font-size: 22px;
+        font-weight: 600;
+    }
+`;
+
 export default ({ weather }) => (
     <WeatherInfo>
         <MaxWidthBox>
-            <Temp>
+            <InfoRow>
                 <WeatherIcon description={weather.weather[0].description} sunset={weather.sys.sunset} sunrise={weather.sys.sunrise} />
                 <div className="temperature">{weather.main.temp} <sup>o</sup>C</div>
-            </Temp>
+                <Info>
+                    <div className="title">Wilgotność:</div>
+                    <div className="content">{weather.main.humidity}%</div>
+                </Info>
+                <Info>
+                    <div className="title">Ciśnienie:</div>
+                    <div className="content">{weather.main.pressure} hPa</div>
+                </Info>
+                <Info>
+                    <div className="title">Zachmurzenie:</div>
+                    <div className="content">{weather.clouds.all}%</div>
+                </Info>
+            </InfoRow>
         </MaxWidthBox>
     </WeatherInfo>
 );
